@@ -24,16 +24,18 @@ function Main({ colorName, setColorName }) {
         <div className="colorByName">{colorName}</div>
         <div className="colorByHex">{hexColor}</div>
       </section>
-      <form>
+      <form onSubmit={(e)=>e.preventDefault()}>
         <input
           type="text"
           className="colorName"
+          placeholder="Type any color.."
           autoFocus
           value={colorName}
           onChange={(e) => {
             const newColor = e.target.value;
             setColorName(newColor);
-            setHexColor(()=>colorNameToHex(newColor))
+            setHexColor(()=>
+                colorNameToHex(newColor))
           }
         }
         />
